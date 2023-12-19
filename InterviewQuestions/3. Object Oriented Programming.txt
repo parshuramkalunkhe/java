@@ -1,0 +1,48 @@
+3. Object Oriented Programming
+
+Q.1. What are the main features of OOPs in java?
+
+Q. What is Polymorphism?
+
+Q What is Inheritance in java?
+
+Q What is Encapsulation in java?
+
+Q. What is Abstraction and how many ways it can be achieved?
+
+Q. What is this and super calling statement?
+
+Q. What is constructor chaining statement?
+
+Q. Explain the difference between method overloading & method overriding?
+
+Q. What is constructor overloading?
+
+Q. Is it possible to override constructor?
+
+Q. What is diamond problem in Inheritance?
+
+Q. What is Compile time Polymorphism and how it is different from run time Polymorphism?
+
+Q. What do you understand by upcasting and downcasting?
+
+Q. What is variable shadowing and method shadowing?
+
+Q. difference between abstract class & interface?
+
+Q. Can we write main method inside an interface in java?
+
+Q. How we can achieve multiple Inheritance by using interface concept?
+
+Q. What are the access modifiers?
+
+Q. What is marker interface?
+
+
+
+
+
+
+
+
+

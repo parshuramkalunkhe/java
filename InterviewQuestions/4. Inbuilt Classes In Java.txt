@@ -1,0 +1,31 @@
+4. Inbuilt Classes In Java
+
+Q.1. What is Object class and its methods?
+A:
+
+Q.2. What is array and String?
+A:
+
+Q.3. When we will get ArrayIndexOutOfBoundException and NegativeArraySizeException?
+A:
+
+Q.4. What is difference between "equals()" and "==" in java?
+A:
+
+Q.5. What is String and explain atleast 6 Inbuilt methods of String?
+A:
+
+Q.6. Why String is immutable?
+A:
+
+Q.7. String class can be inherited by any other class?
+A:
+
+Q.8. Why String class is final?
+A:
+
+Q.9. What is String vs String buffer vs String builder?
+A:
+
+Q.10. What is String vs String buffer vs String builder?
+A:

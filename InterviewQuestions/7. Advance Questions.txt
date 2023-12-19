@@ -1,0 +1,59 @@
+7. Advance Questions
+
+Q. What is multi-threading?
+A. Multithreading in Java is a process of executing multiple threads
+simultaneously.
+A thread is a lightweight sub-process, the smallest unit of processing.
+Multiprocessing and multithreading, both are used to achieve
+multitasking.
+However, we use multithreading than multiprocessing because threads
+use a shared memory area. They don't allocate separate memory area so
+saves memory, and context-switching between the threads takes less
+time than process.
+
+Q. What is difference between Thread and runnable?
+A.
+Thread
+Thread is a class. It is used to create a thread.•
+It has multiple methods including start() and run()•
+Each thread creates a unique object and gets associated with it.•
+Runnable
+Runnable is a functional interface which is used to create a thread.•
+It has only abstract method run()•
+Multiple threads share the same objects.
+
+Q. What is Synchronization?.
+A. - Synchronization in java is the capability to control the access of
+multiple threads to any shared resource.
+Java Synchronization is better option where we want to allow only one
+thread to access the shared resource.
+The synchronization is mainly used to
+To prevent thread interference.1.
+2. To prevent consistency problem.
+
+
+Q. What is difference between sleep() and wait()?.
+A. Wait() - The thread releases ownership of this monitor and waits
+until another thread notifies threads waiting on this object's monitor to
+wake up either through a call to the notify() method or the notifyAll()
+method. The thread then waits until it can re-obtain ownership of the
+monitor and resumes execution.
+Sleep() - This method causes the currently executing thread to sleep
+(temporarily cease execution) for the specified number of milliseconds.
+The thread does not lose ownership of any monitors. It sends the current
+thread into the “Not Runnable” state for a specified amount of time.
+
+Q. Difference between final and finally and finalize ?
+Q. Define System.out.println() ?
+Q. What is Destructor?
+Q. What is dynamic method dispatch?
+Q. What is copy constructor?
+Q. What is file handling?
+A. File Handing in java comes under IO operations. Java IO
+package java.io classes are specially provided for file handling in java.
+Some of the common file handling operations are:
+Create file
+Delete file
+Read file
+Write file
+Change file permissions

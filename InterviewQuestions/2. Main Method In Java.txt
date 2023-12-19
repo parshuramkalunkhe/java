@@ -1,0 +1,40 @@
+2. Main Method In Java
+
+Q.1. Why main method is a static method?
+A: The main() method is marked static so that the JVM may call it without having to create an instance (object) of the class that contains the main() function. We must declare the main() method static as no class object is present when the java runtime starts. JVM can then load the class into the main memory and invoke the main() method.
+
+Q.2. Can we overload the main method?
+A: Yes, we can overload the main() method. But remember that the JVM always calls the original main() method. It does not call the overloaded main() method.
+
+Q.3. Can we override the main method?
+A: No, we cannot override main method of java because a static method cannot be overridden.
+
+Q.4. Can we write static public void main(String[] args)?
+A:  If you write static public void instead of public static void then it is perfectly OK.
+
+Q.5. Why does main method have String array as an argument?
+A:  main() must have String arguments as arrays because JVM calls the main method by passing the command-line argument. As they are stored in string array objects it is passed as an argument to main().
+
+Q.6. What is command line arguments in Java?
+A: Command line arguments in Java are used to pass arguments to the main program. The Java main() method syntax accept String array as an argument. When we pass command line arguments, they are treated as strings and passed to the main() method in the string array argument.
+
+Q.7. Can we make main method as final?
+A: Yes, we can declare the main() method as final in Java. The compiler does not throw any error. If we declare any method as final by placing the final keyword then that method becomes the final method. The main use of the final method in Java is they are not overridden.
+
+Q.8. Can we have a class without main method?
+A: Yes, we can compile that class but cannot execute and it throw an error main method not found in the class”.
+
+Q.9. Can we execute the class without the main method?
+A: No, It throw an error main() method not found in the class.
+
+Q.10. Can we create a method inside main method?
+A:  No, we cannot directly define methods inside other methods in Java ( main method too)
+
+Q.11. Can we make main method as private?
+A: Yes, we can declare the main method as private in Java. It compiles successfully without any errors but at the runtime, it says that the main method is not public.
+
+Q.12. Can we call main method explicitly?
+A: Yes, Because main() is a static method. So, We can call static methods from another class static method.
+
+Q.13. Can we return any value from main method?
+A: Java's main function is void, which means it does not return any value when it completes.

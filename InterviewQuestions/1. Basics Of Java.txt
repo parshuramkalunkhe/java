@@ -1,0 +1,192 @@
+# Basics Of Java.
+
+Q.1. What is a programming language?
+A: The language which is used to communicate and instruct the computer to perform task is called as programming language.
+
+Q.2. What is Java?
+A: Java is high level programming language that is used to instruct a computer or machine.
+
+Q.3. Why Java is platform independent?
+A: Java is platform independent because we can write program in one platform and execute in any platform also known as wora (write once run anywhere). 
+
+Q.4. Explain the features/Buzz words of java?
+A:  
+Features of Java.
+1. Simple
+2. Platform Independent
+3. Portable
+4. Architecture Neutral
+5. High Performance
+6. Robust
+7. Dynamic
+8. Highly Secure
+9. Multi-threading
+10. Open Source
+11. OOPs
+
+1. Simple : Java is easily readable, understandable and instructable programming language.
+
+2. Platform Independent : Java is platform independent because we can write a program in one platform and execute in any platform also known as wora (write once run anywhere).
+
+3. Portable : Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
+
+4. Architecture Neutral : Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed.
+
+5. High Performance : Java uses JIT (Just in Time) compiler. It increases the speed of execution.
+
+6. Robust : Java checks the source code two times first at compile time error (CTE) and second at run time error (RTE).
+
+7. Dynamic : In Java automatically memory allocate and remove by JRE (Java Runtime Environment).
+
+8. Highly Secure : Java is highly secure because execution happens in JRE(Java Runtime Environment) not in operating system.
+
+9. Multi-threading : Java is multi-threaded language. Multi-threading in Java is like having multiple cooks (threads) in kitchen, each handling a different task simultaneously to make cooking faster and more efficient.
+
+10. Open Source : Java is free and open source.
+
+11. OOPs : Java is an Object-oriented programming language.
+
+Q.5. Explain JDK, JRE and JVM?
+A: 
+
+java source code --> compiler --> byte code --> JVM --> Binary code  	  
+
+* JDK (Java Development Kit)
+1. It provides an environment to write as well as to run Java program.
+2. JDK is physically exists.
+3. JDK consists of two things DE (Development Tools) and JRE (Java Runtime Environment).
+4. DE (Development Tools) consists of javac, java and debugger.
+ - javac : It is compiler and command line tool provided by JDK.
+ - java : It is Java Virtual Machine (JVM).
+ - debugger : It is tool used for debugging and troubleshooting java code.
+ 
+* JRE (Java Runtime Environment)
+1. It provides an environment to run java program.
+2. JRE physically exists.
+3. JRE consists of JVM & inbuilt libraries known as .class files.
+
+* JVM (Java Virtual Machine)
+1. JVM takes byte code as input and generates binary as output.
+2. JVM is platform dependent but JVM makes Java platform independent.
+3. JVM physically does not exists.
+4. JVM consists of interpreter and JIT (Just In Time) compiler.
+ - Interpreter : Interpreter checks and execute byte code simultaneously line by line. Interpreter takes more time to execute.
+ - JIT (Just In Time) compiler : It is compiler that increases the speed of execution.
+  ** NOTE : Just In Time compiler indentifies some set of programs having same function and then it compiles at once later given to the interpreter.
+
+Q.6. Difference between compiler and interpreter.
+A: 
+* Comiler 
+1. It takes an entire program at a time.
+2. It generates intermediate object code.
+3. The compilation is done before execution.
+4. It is comparatively faster.
+
+* Interpreter
+1. It takes a single line of code or instruction at a time.
+2. It does not produce any intermediate object code.
+3. The compilation and execution take place simultaneously.
+4. It is comparatively slower.
+
+Q.7. Why java is not 100% Object-oriented?
+A: There are a few reasons why java is not considered 100% object-oriented sometimes.
+1. Primitive Data types which are not data types.
+2. Static members and methods which are associated with the class itself rather than instances of the class.
+3. Java Arrays are not true objects; they are special kind of object with a fixed size.
+
+Q.8. What is local variable and global variable?
+A: 
+* Local Variable 
+1. A variable declared inside local area is known as local variable.
+2. Local variable are not assign with default values.
+3. Local variable can not be used without intializaiton.
+4. Local variable will be stored inside stack area.
+
+* Global Variable
+1. A variable declared inside global area is known as global variable.
+2. Global Variable are assign with default values.
+3. Global variable can be used without initialization.
+4. Global Variable will be stored inside class static area.
+
+** Default values.
+byte --> 0
+short --> 0
+int --> 0
+long --> 0
+float --> 0.0
+double --> 0.0
+boolean --> false
+String --> null
+char --> nothing/empty/blank
+
+Q.9. What is static block and non-static block?
+A: 
+* static block
+1. Any block declared inside global area prefix with static keyword is known as static block
+2. static block doesn't have any name, return type and any formal argument.
+3. Programmer can not call static block explicitly (forcefully).
+4. static block get executed before the execution of main method.
+5. static block is executed implicitely(automatically) by the compiler byt only once.
+6. When we have multiple SIB's then they will get executed from top to bottom order.
+
+* non-static block
+1. Any block declared inside global area does not prefix with static keyword is known as non-static block. It is also known as Instance Initializer Block (IIB) or Anonymous Block.
+2. non-static block doesn't have any name, return type and any formal argument.
+3. Programmer cannot call non-static block explicitly(forcefully).
+4. non-static block get executed after the execution of main method.
+5. non-static block get execute only when we create object.
+6. non-static block get executed only once for one object.
+7. When we have multiple IIB's then they will get executed from top to bottom order.
+
+Q.10. Why do we need static block / non-static block ?
+* static block : To execute some statements mandatorily before execution of main method.
+
+* non-static block : To execute some statements mandatorily whenever we create object only once for one object.
+
+Q.11. What is class loading operation and object loading operation?
+A: 
+* Class Loading operation
+In Java, class loading operation is the process of loading a class file into memory. It involves taking the bytecode produced by the java compiler and converting iti into a binary code.
+
+* Object loading operation
+On the other hand, object loading operation is the process of creating an instance (object) of class. It involves allocating memory for the object. This process is initiated using the 'new' keyword in Java.
+
+Q.12. What is this and super keyword?
+A: 
+* this
+1. It is special keyword used within a class to refer to the current instance (object) fo the class.
+2. It is used to differentiate instance variables from local varialbes when they have same name.
+3. To invoke the current object's method.
+4. To pass the current object as a parameter to other method.
+
+* super
+1. It is used to refer to the immediate parent class's instance (object) or members.
+2. To invoke the superclass's method overridden by the subclass.
+3. To access the superclass's fields or methods from the subclass.
+
+Q.13. What are constructors in java?
+A: 
+1. constructor is a special non-static member. 
+2. Cause 
+ a. constructor name must be same as className.
+ b. constructor is similar to method but constructor doesn't have any return type.
+3. If a class does not explicitly define a constructor, Java provides a default constructor with no parameters.
+4. It used to store all non-static members inside object.
+5. constructor does not have any return type.
+6. They are called automatically when object is created using the 'new' keyword.
+7. There are three types of constructor
+ a. default constructor : If a class does not have any constructor.
+ b. Parameterized constructor : constructor that accept parameters.
+ c. Copy constructor : construct new object by copying the state of an existing object of the same class.
+
+Q.13. What is class and Objects?
+A: 
+* class 
+1. A class is a blueprint or a template for creating objects.
+2. It defines a set of properties (attributes or fields) and behaviors (methods) that characterize objects created from that class.
+3. class is user-defined data type or Non-primitive data type.
+
+* Objects
+1. Objects are the instances of a class.
+2. They are created based on the structure defined by the class.
+3. Object are created using the 'new' keyword followed by the class constructor.
