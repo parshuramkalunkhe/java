@@ -15,9 +15,18 @@ public class Question_75 {
 			if (num == -1) {
 				break;
 			}
-			//list.add(num);
+//			list.add(num);
 		}
 		
+		System.out.println("Objects in List : " + list);
+		System.out.println();
+		
+		System.out.println("Enter Objects Using Do While Loop.");
+		int num;
+		do {
+			num = sc.nextInt();
+			list.add(num);
+		}while(num != -1);
 		System.out.println("Objects in List : " + list);
 		
 		sc.close();

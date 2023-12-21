@@ -1,6 +1,4 @@
-//Q.74. Reveser each array in 2d array
-
-import java.util.Arrays;
+//Q.74. Reverse each array in 2d array
 
 public class Question_74 {
 	public static void main(String[] args) {
