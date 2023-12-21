@@ -22,6 +22,7 @@ class EMP{
 }
 
 class SalComparator implements Comparator<EMP> {
+    @Override
     public int compare(EMP emp1, EMP emp2){
         if (emp1.sal > emp2.sal){
             return 1;
@@ -34,6 +35,7 @@ class SalComparator implements Comparator<EMP> {
 }
 
 class AgeComparator implements Comparator <EMP>{
+     @Override
      public int compare(EMP emp1, EMP emp2){
         if (emp1.age > emp2.age){
             return 1;
