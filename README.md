@@ -9,6 +9,8 @@
 
 > **Revision :** This directory contains revised programs on Java.
 
-> **Notes :** This directory contains Notes of Java
+> **Notes :** This directory contains Notes of Java.
 
-I will upload more on this....
+> **Books :** This directory contains books related to Java.
+
+
