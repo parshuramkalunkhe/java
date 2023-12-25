@@ -1,19 +1,492 @@
 6. Collection & Map
 
-Q. What is the advantages of Collection over Array?
+Q.1. What is the advantages of Collection over Array?
+A:
+Advantages of Collection over Array:
 
-Q. What is Collection and its hierarchy?
-Q. What is List and Explain its implementation classes?
-Q. Difference between Arraylist & LinkedList vs Vector?
-Q. What is doubly-linked list concept?
-Q. Why we go with Set and what is the difference between List & Set?
-Q. Difference between Hashset & LinkedHashset?
-Q. Explain Treeset?
-Q. What is Queue and explain its implementation classes?
-Q. What is Iterator and why we use?
-Q. Difference between Iterator & ListIterator?
-Q. What is Map and explain its implementation classes?
-Q. Difference between Hashmap vs LinkedHashmap?
-Q. What is Treemap?
-Q. If we use duplicate key with some value in map what will happen?
-Q. Why hashMap does not comes under collection?
+1. **Dynamic Size**:
+   - Collections can dynamically resize, while arrays have a fixed size.
+
+2. **Flexibility**:
+   - Collections offer flexibility with built-in methods for easy insertion, deletion, and manipulation of elements.
+
+3. **Generics**:
+   - Collections support generics, allowing type-safety, whereas arrays are covariant and can lead to runtime errors.
+
+4. **Polymorphism**:
+   - Collections provide polymorphic behavior with interfaces like List, Set, Map, allowing easy switching between different implementations.
+   - `List`, `Set`, and `Map` are interfaces.
+   - We use different implementations (`ArrayList`, `HashSet`, `HashMap`) for these interfaces.
+   - By declaring variables using interface types (`List<String>`, `Set<Integer>`, `Map<String, Integer>`), we achieve polymorphism.
+   - This allows us to easily switch between implementations. For instance, changing `ArrayList` to `LinkedList` or `HashMap` to `TreeMap` would only require changing the instantiation, maintaining the same interface usage throughout the code.
+
+5. **Additional Features**:
+   - Collections provide various utility methods (sorting, searching, filtering) not available in arrays.
+
+6. **Interoperability**:
+   - Collections offer better interoperability with other APIs and libraries due to their standard interfaces and methods.
+
+Q.2.  What is Collection and its hierarchy?
+A:
+In Java, a Collection is an interface that represents a group of objects known as elements. It is a part of the Java Collections Framework and provides a unified architecture for managing and manipulating groups of elements.
+
+Collection Hierarchy in Java:
+- **Collection Interface**: The root interface in the Java Collections Framework hierarchy that defines the basic methods to be supported by all collections. It doesn't directly implement storage for elements.
+  - **List Interface**: Extends `Collection` and represents an ordered collection of elements that allows duplicate entries. Implementations include `ArrayList`, `LinkedList`, `Vector`, etc.
+  - **Set Interface**: Extends `Collection` and represents a collection that doesn't allow duplicate elements. Implementations include `HashSet`, `TreeSet`, `LinkedHashSet`, etc.
+  - **Queue Interface**: Extends `Collection` and represents a collection used to hold multiple elements before processing. Implementations include `PriorityQueue`, `LinkedList`, etc.
+    - **Deque Interface**: Extends `Queue` and represents a double-ended queue allowing insertion and removal at both ends. Implementations include `ArrayDeque`, `LinkedList`, etc.
+  - **Map Interface**: Represents a mapping between keys and values. It's not a subtype of `Collection`. Implementations include `HashMap`, `TreeMap`, `LinkedHashMap`, etc.
+    - **SortedMap Interface**: Extends `Map` and provides a total ordering of its keys. Implementations include `TreeMap`.
+      - **NavigableMap Interface**: Extends `SortedMap` and provides navigation methods. Implementations include `TreeMap`.
+
+These interfaces and their implementations in the Java Collections Framework provide various data structures and behaviors to store, manipulate, and manage collections of elements efficiently.
+
+Q.3. What is List and Explain its implementation classes?
+A:
+In Java, a List is an ordered collection that allows duplicate elements. It maintains the insertion order of elements, allowing positional access to elements using an index.
+
+Implementation classes of the List interface in Java Collections Framework include:
+
+1. **ArrayList**:
+   - Implements the List interface using a dynamic array.
+   - Provides fast random access and is resizable.
+   - Suitable for situations where frequent access or modification of elements at specific positions is required.
+
+2. **LinkedList**:
+   - Implements the List interface using a doubly linked list.
+   - Provides efficient insertion and deletion operations.
+   - Suitable for situations where frequent insertion/deletion at the beginning, end, or middle of the list is required.
+
+3. **Vector**:
+   - Similar to ArrayList but is synchronized.
+   - Supports legacy code and is thread-safe.
+   - Generally less efficient compared to ArrayList due to synchronization overhead.
+
+4. **Stack**:
+   - Extends Vector and represents a last-in, first-out (LIFO) stack of elements.
+   - Provides operations like push (add an element to the top) and pop (remove the top element).
+
+5. **CopyOnWriteArrayList**:
+   - Implements List interface using an array that creates a new copy of the array for any modification operation (like add, set, remove).
+   - Provides thread-safe iteration without locking.
+
+These List implementations provide different characteristics and performance trade-offs, catering to various use cases based on factors such as access patterns, concurrency requirements, and efficiency in specific operations.
+
+Q.4. Difference between Arraylist & LinkedList vs Vector?
+A:
+
+Certainly! Here's a comparison between ArrayList, LinkedList, and Vector in Java:
+
+1. **ArrayList**:
+   - Implementation: Uses a dynamic array to store elements.
+   - Efficiency: Provides fast random access and is efficient for retrieving elements by index.
+   - Resizing: Resizable array, increases by 50% when resized.
+   - Thread Safety: Not synchronized (not thread-safe).
+   - Performance: Generally faster than LinkedList for retrieval but slower for frequent insertion/deletion at the beginning/middle.
+   - Legacy: Introduced in JDK 1.2, not legacy like Vector.
+
+2. **LinkedList**:
+   - Implementation: Uses a doubly linked list to store elements.
+   - Efficiency: Efficient for insertion/deletion at the beginning/middle due to pointer manipulation.
+   - Resizing: Does not require resizing as it grows by adding new nodes.
+   - Thread Safety: Not synchronized (not thread-safe).
+   - Performance: Slower for random access but faster for frequent insertion/deletion.
+   - Overhead: Requires more memory due to node-based structure.
+
+3. **Vector**:
+   - Implementation: Similar to ArrayList but synchronized (thread-safe).
+   - Efficiency: Similar to ArrayList, but slower due to synchronization overhead.
+   - Resizing: Increases by doubling the size when resized.
+   - Thread Safety: Synchronized, ensuring thread safety.
+   - Legacy: Introduced in JDK 1.0, considered legacy due to synchronization overhead and use of newer collections introduced later.
+
+In summary, ArrayList is efficient for random access, LinkedList for insertion/deletion, while Vector, being synchronized, is slower due to synchronization and is considered legacy compared to the other two. Depending on specific requirements like access patterns, concurrency needs, and efficiency in specific operations, the choice between ArrayList, LinkedList, or Vector may vary.
+
+Q.5. What is doubly-linked list concept?
+A:
+
+A doubly linked list is a type of linked list where each node contains two pointers or references, one pointing to the next node in the sequence (forward direction) and another pointing to the previous node (backward direction).
+
+Key characteristics of a doubly linked list:
+
+1. **Node Structure**: Each node in a doubly linked list contains three fields: data (to store the element), a reference to the next node, and a reference to the previous node.
+
+2. **Bidirectional Links**: Unlike a singly linked list, which has links only in one direction (forward), a doubly linked list has links in both directions. Each node has a reference to both its previous and next nodes.
+
+3. **Traversal**: Traversing a doubly linked list can be performed in both forward and backward directions, starting from any node.
+
+4. **Insertion and Deletion**: Adding or removing elements at the beginning, end, or middle of the list can be more efficient compared to a singly linked list because there's direct access to the previous node.
+
+5. **Memory Overhead**: Requires additional memory to store the previous node reference along with the next node reference in each node, leading to higher memory consumption compared to a singly linked list.
+
+The bidirectional nature of a doubly linked list provides advantages like efficient insertion/deletion at both ends and facilitates backward traversal. However, it consumes more memory due to the extra references stored in each node.
+
+Q.6. Why we go with Set and what is the difference between List & Set?
+A:
+We choose a Set over a List when we need to store unique elements without duplicates. Here are the key differences between List and Set in Java:
+
+1. **Duplicates**:
+   - **List**: Allows duplicate elements; maintains insertion order.
+   - **Set**: Does not allow duplicate elements; does not guarantee order (except for LinkedHashSet, which maintains insertion order).
+
+2. **Ordering**:
+   - **List**: Preserves the order of elements as they are added (maintains insertion order).
+   - **Set**: Does not guarantee the order of elements. HashSet provides better performance but doesn’t maintain order, while LinkedHashSet maintains insertion order.
+
+3. **Implementation**:
+   - **List**: Implemented by classes like ArrayList, LinkedList, etc.
+   - **Set**: Implemented by classes like HashSet, LinkedHashSet, TreeSet, etc.
+
+4. **Index-based Access**:
+   - **List**: Supports access by index. Elements can be accessed and retrieved by their position (index) in the list.
+   - **Set**: Does not support index-based access. Elements can't be accessed by index as Sets do not maintain order.
+
+5. **Performance**:
+   - **List**: Optimized for accessing elements by index.
+   - **Set**: Optimized for uniqueness checks. Checking for existence of an element is faster in a Set than in a List, especially for large collections.
+
+In summary, we choose a Set over a List when the requirement is to store unique elements without concern for their order or if duplicates need to be avoided. Lists are preferred when maintaining the order of elements or allowing duplicates is necessary. The choice between List and Set depends on the specific use case and requirements of the application.
+
+Q.7. Difference between Hashset & LinkedHashset?
+A:
+The main differences between HashSet and LinkedHashSet in Java are related to ordering and performance:
+
+1. **Ordering**:
+   - **HashSet**: Does not maintain any order of elements. The order of elements is not guaranteed; it may change over time as elements are added or removed.
+   - **LinkedHashSet**: Maintains the insertion order of elements. It preserves the order in which elements were inserted into the set.
+
+2. **Implementation**:
+   - **HashSet**: Implemented using a hash table (HashMap internally).
+   - **LinkedHashSet**: Implemented as a hybrid data structure, combining a hash table with a linked list. It uses a hash table for fast element lookup and a linked list to maintain insertion order.
+
+3. **Performance**:
+   - **HashSet**: Generally offers better performance for adding, removing, and checking for the existence of elements due to its hash table implementation. However, it does not maintain insertion order.
+   - **LinkedHashSet**: Slightly slower than HashSet in terms of performance for operations like addition and removal because it maintains insertion order using a linked list. However, it provides predictable iteration order (the order in which elements were inserted).
+
+4. **Memory Overhead**:
+   - **HashSet**: Typically consumes less memory compared to LinkedHashSet due to its simpler internal structure (only hash table).
+   - **LinkedHashSet**: Consumes slightly more memory than HashSet due to additional pointers (linked list) used to maintain insertion order.
+
+In summary, HashSet is faster in terms of performance for basic set operations but does not maintain any specific order of elements. LinkedHashSet maintains the order of insertion but may be slightly slower and consumes slightly more memory due to the additional linked list used to preserve insertion order. The choice between them depends on whether insertion order preservation is important for the specific use case.
+
+Q.8. Explain Treeset?
+A:
+
+`TreeSet` is a class in Java that implements the `Set` interface and is part of the Java Collections Framework. It represents a set that is based on a red-black tree data structure.
+
+Key features of TreeSet:
+
+1. **Sorted Set**:
+   - TreeSet maintains elements in sorted (ascending) order by default.
+   - The elements are sorted based on their natural ordering (if they implement the `Comparable` interface) or by a specified comparator provided at TreeSet creation.
+
+2. **Unique Elements**:
+   - Like other sets, TreeSet does not allow duplicate elements. It stores only unique elements.
+
+3. **Internal Data Structure**:
+   - Implemented as a self-balancing binary search tree (red-black tree), which ensures log(n) time complexity for most operations such as add, remove, and contains.
+
+4. **Performance**:
+   - Offers efficient operations for adding, removing, and retrieving elements.
+   - Provides guaranteed O(log n) time complexity for add, remove, and contains operations.
+
+5. **Not Thread-Safe**:
+   - TreeSet is not synchronized and is not thread-safe. For concurrent access, it needs external synchronization.
+
+6. **Usage**:
+   - Useful when elements need to be maintained in a sorted order while preventing duplicates.
+   - Suitable for scenarios requiring efficient range queries or operations that require maintaining elements in sorted order.
+
+Example usage:
+```java
+import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<Integer> treeSet = new TreeSet<>();
+
+        treeSet.add(5);
+        treeSet.add(2);
+        treeSet.add(8);
+        treeSet.add(1);
+
+        System.out.println("TreeSet elements: " + treeSet); // Output will be in sorted order
+    }
+}
+```
+
+In summary, TreeSet is a sorted set implementation in Java that stores elements in sorted order using a red-black tree, ensuring efficient performance for various operations while maintaining uniqueness and order.
+
+Q.9. What is Queue and explain its implementation classes?
+A:
+In Java, a Queue is an interface that represents a collection designed for holding elements prior to processing based on the FIFO (First-In-First-Out) principle. It defines methods for adding, removing, and inspecting elements.
+
+Implementation classes of the Queue interface in Java Collections Framework include:
+
+1. **LinkedList**:
+   - Implements Queue interface and supports all Queue operations.
+   - Provides a doubly linked list-based implementation.
+   - Efficient for typical Queue operations like insertion, deletion, and retrieval at both ends.
+
+2. **ArrayDeque**:
+   - Implements Queue and Deque interfaces, providing a resizable-array implementation.
+   - Supports both FIFO (Queue) and LIFO (Stack) operations.
+   - Offers efficient insertion and removal from both ends of the queue.
+
+3. **PriorityQueue**:
+   - Implements Queue interface but is not a FIFO queue; elements are ordered based on their natural ordering (or a custom comparator).
+   - Elements are retrieved based on their priority.
+   - Not based on insertion order; offers elements in a sorted manner based on the priority.
+
+4. **PriorityBlockingQueue**:
+   - Implements BlockingQueue interface, extending PriorityQueue.
+   - Adds blocking support (thread-safe operations with blocking) to PriorityQueue operations.
+
+These implementations provide different functionalities and performance characteristics suitable for various use cases. LinkedList is efficient for general-purpose queues, ArrayDeque offers resizable-array implementation, PriorityQueue maintains ordered elements based on priority, and PriorityBlockingQueue adds thread-safe support for priority-based queues in concurrent environments.
+
+Q.10. What is Iterator and why we use?
+A:
+An Iterator in Java is an interface provided by the Java Collections Framework that allows sequential access to elements in a collection without exposing its underlying structure. It provides methods to iterate through a collection and perform operations on its elements.
+
+Reasons for using an Iterator:
+
+1. **Traversal**: Iterators provide a way to traverse through elements in a collection, allowing sequential access to each element in the collection.
+
+2. **Uniform Access**: It offers a uniform way to access elements across different types of collections (List, Set, Map) without exposing the internal implementation details of the collection.
+
+3. **Safe Removal**: Iterators allow safe removal of elements while iterating through a collection using the `remove()` method. This avoids ConcurrentModificationException.
+
+4. **Fail-Safe Iteration**: Some iterators (e.g., ConcurrentModificationException) provide fail-safe behavior, allowing iteration even if the collection is modified concurrently.
+
+5. **Efficiency**: Iterators are often more efficient than using indices (in lists) or other methods to access elements because they are optimized for the specific collection's internal structure.
+
+Example usage of Iterator:
+
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class IteratorExample {
+    public static void main(String[] args) {
+        ArrayList<String> myList = new ArrayList<>();
+        myList.add("Apple");
+        myList.add("Banana");
+        myList.add("Orange");
+
+        // Obtaining an Iterator
+        Iterator<String> iterator = myList.iterator();
+
+        // Iterating through elements using the Iterator
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            System.out.println(element);
+        }
+    }
+}
+```
+
+In summary, an Iterator provides a standard way to traverse through elements in a collection, offering safe and efficient access without exposing the internal structure, ensuring uniformity across different types of collections.
+
+Q.11. Difference between Iterator & ListIterator?
+A:
+
+The main differences between Iterator and ListIterator in Java are as follows:
+
+1. **Positioning**:
+   - **Iterator**:
+     - Works with any collection implementing the Iterator interface.
+     - Provides forward-only traversal of elements.
+   - **ListIterator**:
+     - Works specifically with List implementations (e.g., ArrayList, LinkedList).
+     - Provides both forward and backward traversal of elements.
+
+2. **Navigation**:
+   - **Iterator**:
+     - Supports hasNext() for checking the next element and next() for retrieving it.
+     - Doesn’t have a previous() method for backward traversal.
+   - **ListIterator**:
+     - Extends Iterator and provides hasNext(), next(), hasPrevious(), previous() methods for both forward and backward traversal.
+     - Allows bidirectional movement within a list.
+
+3. **Modification**:
+   - **Iterator**:
+     - Supports removal of elements using the remove() method.
+     - Does not support adding elements during iteration.
+   - **ListIterator**:
+     - Supports adding elements at any point in the list using add() while iterating.
+     - Allows modifying elements using set() method during traversal.
+     - Supports removal of elements using remove().
+
+4. **List-Specific**:
+   - **Iterator**:
+     - Applicable to any collection implementing the Iterator interface.
+   - **ListIterator**:
+     - Specifically designed for Lists and provides more functionalities for list traversal and manipulation.
+
+In summary, ListIterator is an extended version of Iterator, specifically designed for Lists, allowing bidirectional traversal, element modification, and addition/removal of elements during traversal, whereas Iterator provides forward-only traversal and supports element removal but not addition or backward traversal.
+
+Q.12. What is Map and explain its implementation classes?
+A:
+In Java, a Map is an interface in the Java Collections Framework that represents a collection of key-value pairs. It maps keys to values and does not allow duplicate keys. Each key can map to at most one value.
+
+Implementation classes of the Map interface in Java Collections Framework include:
+
+1. **HashMap**:
+   - Implements the Map interface using a hash table.
+   - Offers fast performance for basic operations (add, remove, containsKey, containsValue).
+   - Does not guarantee the order of its elements.
+
+2. **LinkedHashMap**:
+   - Extends HashMap and maintains insertion order.
+   - Implements a hash table with a linked list running through it, ensuring predictable iteration order.
+   - Slower than HashMap due to maintaining insertion order.
+
+3. **TreeMap**:
+   - Implements the Map interface using a Red-Black tree.
+   - Sorts the elements based on their natural ordering (or a custom comparator), providing them in ascending order based on keys.
+   - Offers log(n) time complexity for most operations but slower than HashMap.
+
+4. **Hashtable**:
+   - Similar to HashMap but is synchronized (thread-safe).
+   - Provides thread safety but is less efficient than HashMap due to synchronization overhead.
+   - Considered legacy; ConcurrentHashMap is a preferred choice for concurrent applications.
+
+5. **ConcurrentHashMap**:
+   - Implements Map interface and is designed for concurrent use.
+   - Provides thread safety without synchronizing the entire map, using a different approach than Hashtable.
+   - Offers high concurrency and scalability.
+
+6. **WeakHashMap**:
+   - Implements Map interface and uses weak references for keys.
+   - Allows keys to be garbage collected if there are no strong references to the keys.
+   - Useful in situations where the keys need to be dynamically added and removed.
+
+These implementations offer different characteristics and performance trade-offs, catering to various use cases based on factors such as performance requirements, concurrency, ordering needs, and memory constraints.
+
+Q.13. Difference between Hashmap vs LinkedHashmap?
+A:
+The main differences between HashMap and LinkedHashMap in Java are related to ordering and performance:
+
+1. **Ordering**:
+   - **HashMap**: Does not maintain any order of elements. The order of elements is not guaranteed; it may change over time as elements are added or removed.
+   - **LinkedHashMap**: Maintains the insertion order of elements. It preserves the order in which elements were inserted into the map.
+
+2. **Implementation**:
+   - **HashMap**: Implemented using a hash table (buckets with linked lists for collision resolution).
+   - **LinkedHashMap**: Extends HashMap and maintains a doubly linked list alongside the hash table to maintain the insertion order.
+
+3. **Performance**:
+   - **HashMap**: Generally offers better performance for basic operations like adding, removing, and checking for the existence of keys/values due to its hash table implementation.
+   - **LinkedHashMap**: Slightly slower than HashMap in terms of performance for basic operations because it maintains insertion order using a linked list alongside the hash table.
+
+4. **Memory Overhead**:
+   - **HashMap**: Typically consumes less memory compared to LinkedHashMap due to its simpler internal structure (only hash table with linked lists for collisions).
+   - **LinkedHashMap**: Consumes slightly more memory than HashMap due to maintaining insertion order using a doubly linked list alongside the hash table.
+
+In summary, HashMap is faster for basic operations but does not maintain any specific order of elements, whereas LinkedHashMap maintains the order of insertion but may be slightly slower and consumes slightly more memory due to the additional linked list used to preserve insertion order. The choice between them depends on whether insertion order preservation is important for the specific use case.
+
+Q.14. What is Treemap?
+A:
+TreeMap is a class in Java that implements the Map interface and is a part of the Java Collections Framework. It stores elements in a sorted order based on their keys.
+
+Key features of TreeMap:
+
+1. **Sorted Map**:
+   - TreeMap maintains elements in sorted (ascending) order based on the natural ordering of keys (or a custom comparator provided at TreeMap creation).
+   - Provides efficient sorting of elements based on keys.
+
+2. **Unique Keys**:
+   - Like other maps, TreeMap does not allow duplicate keys. Each key can map to at most one value.
+
+3. **Internal Data Structure**:
+   - Implemented as a Red-Black tree, which is a self-balancing binary search tree.
+   - Offers efficient operations (logarithmic time complexity) for add, remove, and containsKey operations.
+
+4. **Performance**:
+   - Provides guaranteed O(log n) time complexity for most operations.
+   - Efficient for range queries and operations requiring sorted keys.
+
+5. **Not Thread-Safe**:
+   - TreeMap is not synchronized and is not thread-safe. For concurrent access, it needs external synchronization.
+
+6. **Usage**:
+   - Useful when elements need to be maintained in a sorted order based on keys.
+   - Suitable for scenarios requiring efficient range queries or operations that require maintaining elements in sorted order based on keys.
+
+Example usage:
+
+```java
+import java.util.TreeMap;
+
+public class TreeMapExample {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+
+        treeMap.put(3, "Apple");
+        treeMap.put(1, "Banana");
+        treeMap.put(2, "Orange");
+
+        System.out.println("TreeMap elements: " + treeMap); // Output will be in sorted order based on keys
+    }
+}
+```
+
+In summary, TreeMap is a sorted map implementation in Java that stores elements in sorted order based on keys using a Red-Black tree, providing efficient sorting and retrieval based on keys.
+
+Q.15. If we use duplicate key with some value in map what will happen?
+A:
+
+If you attempt to use a duplicate key with a different value in a `Map` implementation (such as HashMap, TreeMap, etc.), the new value will replace the existing value associated with the duplicate key.
+
+In other words, when you attempt to add a key-value pair to a map with a key that already exists, the new value will overwrite the old value associated with that key, updating it to the new value.
+
+Here's an example using a HashMap:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapExample {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+
+        // Adding key-value pairs to the map
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+
+        // Adding a duplicate key "Two" with a different value
+        map.put("Two", 22);
+
+        System.out.println("Map elements: " + map);
+    }
+}
+```
+
+Output:
+```
+Map elements: {One=1, Two=22, Three=3}
+```
+
+In this example, the key `"Two"` already existed in the map with a value of `2`. When another key-value pair with the same key `"Two"` and a new value `22` was added, it replaced the old value `2` with the new value `22` for the same key. Therefore, the resulting map has the updated value `22` associated with the key `"Two"`.
+
+Q.16. Why hashMap does not comes under collection?
+A:
+`HashMap` in Java does not directly implement the `Collection` interface because `Collection` represents a group of objects (a collection of elements), whereas `HashMap` represents a mapping of key-value pairs.
+
+Here are a few reasons why `HashMap` is not considered a part of the `Collection` framework:
+
+1. **Key-Value Pairing**:
+   - `HashMap` stores elements as key-value pairs, where each element (value) is associated with a unique key. It doesn’t simply store individual elements like other collections.
+
+2. **Distinct Functionality**:
+   - Collections primarily deal with storing and manipulating individual elements (e.g., lists, sets), while `HashMap` focuses on mapping keys to values and provides specific methods for key-based operations (`put`, `get`, `remove`).
+
+3. **Hierarchical Structure**:
+   - Collections in Java share a common structure and behavior defined by the `Collection` interface. However, `HashMap` (and other maps like `TreeMap`, `LinkedHashMap`) follows the `Map` interface, which differs in functionality and behavior from `Collection`.
+
+4. **Interface Separation**:
+   - Java's `Collection` framework focuses on handling single elements, while `Map` deals with key-value pairs. They serve different purposes, leading to separate interfaces for collections and maps.
+
+Although `HashMap` is not part of the `Collection` interface, it's still a fundamental and widely used data structure in Java, serving the purpose of efficiently storing and retrieving key-value pairs.

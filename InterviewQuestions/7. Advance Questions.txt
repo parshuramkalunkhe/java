@@ -1,54 +1,206 @@
 7. Advance Questions
 
-Q. What is multi-threading?
-A. Multithreading in Java is a process of executing multiple threads
-simultaneously.
+Q.1. What is multi-threading?
+A:
+Multithreading in Java is a process of executing multiple threads simultaneously.
 A thread is a lightweight sub-process, the smallest unit of processing.
 Multiprocessing and multithreading, both are used to achieve
 multitasking.
-However, we use multithreading than multiprocessing because threads
-use a shared memory area. They don't allocate separate memory area so
-saves memory, and context-switching between the threads takes less
-time than process.
+However, we use multithreading than multiprocessing because threads use a shared memory area. They don't allocate separate memory area so saves memory, and context-switching between the threads takes less time than process.
 
-Q. What is difference between Thread and runnable?
-A.
+Q.2. What is difference between Thread and runnable?
+A:
 Thread
 Thread is a class. It is used to create a thread.•
 It has multiple methods including start() and run()•
-Each thread creates a unique object and gets associated with it.•
+Each thread creates a unique object and gets associated with it.
+
 Runnable
-Runnable is a functional interface which is used to create a thread.•
-It has only abstract method run()•
+Runnable is a functional interface which is used to create a thread.
+It has only abstract method run()
 Multiple threads share the same objects.
 
-Q. What is Synchronization?.
-A. - Synchronization in java is the capability to control the access of
-multiple threads to any shared resource.
-Java Synchronization is better option where we want to allow only one
-thread to access the shared resource.
+Q.3. What is Synchronization?.
+A:
+Synchronization in java is the capability to control the access of multiple threads to any shared resource.
+Java Synchronization is better option where we want to allow only one thread to access the shared resource.
 The synchronization is mainly used to
-To prevent thread interference.1.
-2. To prevent consistency problem.
+    1. To prevent thread interference.
+    2. To prevent consistency problem.
 
-
-Q. What is difference between sleep() and wait()?.
-A. Wait() - The thread releases ownership of this monitor and waits
-until another thread notifies threads waiting on this object's monitor to
-wake up either through a call to the notify() method or the notifyAll()
-method. The thread then waits until it can re-obtain ownership of the
+Q.4. What is difference between sleep() and wait()?.
+A:
+Wait() - The thread releases ownership of this monitor and waits until another thread notifies threads waiting on this object's monitor to wake up either through a call to the notify() method or the notifyAll() method.
+The thread then waits until it can re-obtain ownership of the
 monitor and resumes execution.
-Sleep() - This method causes the currently executing thread to sleep
-(temporarily cease execution) for the specified number of milliseconds.
-The thread does not lose ownership of any monitors. It sends the current
-thread into the “Not Runnable” state for a specified amount of time.
+Sleep() - This method causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds.
+The thread does not lose ownership of any monitors. It sends the current thread into the “Not Runnable” state for a specified amount of time.
 
-Q. Difference between final and finally and finalize ?
-Q. Define System.out.println() ?
-Q. What is Destructor?
-Q. What is dynamic method dispatch?
-Q. What is copy constructor?
-Q. What is file handling?
+Q.5. Difference between final and finally and finalize ?
+A:
+
+Certainly! Here are the differences between `final`, `finally`, and `finalize` in Java:
+
+1. **final**:
+   - `final` is a keyword used to apply restrictions on classes, methods, and variables.
+   - When applied to a variable, it indicates that the variable cannot be reassigned, making it a constant (immutable).
+   - When used with classes, it prevents inheritance, making the class final and unable to be extended.
+   - When applied to methods, it prevents method overriding in subclasses.
+
+   Example:
+   ```java
+   final int x = 10; // x is a constant
+   final class MyClass { /* class definition */ } // MyClass cannot be extended
+   ```
+
+2. **finally**:
+   - `finally` is a block used in exception handling along with `try` and `catch`.
+   - It follows the `try` block and is executed regardless of whether an exception is thrown or not.
+   - It is used to perform cleanup operations, such as releasing resources (closing files, database connections) irrespective of whether an exception occurs or not.
+
+   Example:
+   ```java
+   try {
+       // Code that might throw an exception
+   } catch (Exception e) {
+       // Exception handling
+   } finally {
+       // Cleanup operations executed whether exception occurred or not
+   }
+   ```
+
+3. **finalize**:
+   - `finalize` is a method in Java's `Object` class.
+   - It is called by the garbage collector before an object is destroyed to perform cleanup actions, but its usage is discouraged due to unpredictability and not guaranteed execution.
+   - It can be overridden by classes to release resources or perform cleanup operations before an object is garbage collected, but it's not guaranteed when or if it will be called.
+
+   Example:
+   ```java
+   protected void finalize() throws Throwable {
+       // Cleanup operations before object destruction
+       super.finalize();
+   }
+   ```
+
+In summary, `final` is a keyword used for immutability and preventing further modification, `finally` is a block used in exception handling for cleanup operations, and `finalize` is a method used for performing cleanup before object destruction by the garbage collector (though its usage is discouraged due to unpredictability).
+
+Q.6. Define System.out.println() ?
+A:
+`System.out.println()` is a Java statement used to print output to the standard output stream (usually the console or terminal). It's commonly used for displaying messages, variables, or any other information during program execution.
+
+- **System**: It's a class in Java's `java.lang` package that provides access to system-related resources.
+- **out**: It's a public static member of the `System` class of type `PrintStream` which represents the standard output stream.
+- **println()**: It's a method belonging to the `PrintStream` class used to print a string and then terminate the line by moving the cursor to the next line.
+
+```java
+System.out.println("Hello, World!"); // Prints "Hello, World!" followed by a new line
+```
+
+The `println()` method prints the string passed as an argument and adds a newline character, moving the cursor to the next line, making the subsequent output appear on a new line. It's commonly used for debugging, displaying results, or providing information to users during program execution.
+
+Q.7. What is Destructor?
+A:
+In Java, there is no concept of a "destructor" in the same way it exists in some other programming languages like C++.
+
+In languages like C++, a destructor is a special method that is automatically called when an object is destroyed or goes out of scope. It is used to perform cleanup operations like releasing resources, closing connections, or deallocating memory associated with the object.
+
+However, in Java, there's no direct equivalent to a destructor. Instead, Java provides a garbage collector, a part of the Java Virtual Machine (JVM), which automatically manages memory deallocation and cleans up unused objects. When an object is no longer referenced or in use by the program, the garbage collector automatically identifies and deallocates the memory associated with that object.
+
+In Java, you can define a `finalize()` method in a class, which somewhat resembles a destructor, but it's not used for the same purpose. The `finalize()` method is called by the garbage collector before an object is reclaimed to perform any necessary cleanup operations. However, it's important to note that relying on `finalize()` for resource cleanup is not recommended because its invocation and timing are not guaranteed, and it may lead to unpredictable behavior. Instead, it's better to explicitly manage resources using other mechanisms like `try-with-resources` for closing resources or performing cleanup in specific methods when needed.
+
+Q.8. What is dynamic method dispatch?
+A:
+Dynamic method dispatch is a feature in object-oriented programming languages, including Java, where the method to be invoked is determined at runtime rather than at compile time. It allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
+
+In Java, dynamic method dispatch is associated with method overriding, where a subclass provides its own implementation for a method that is already present in its superclass. When a method is invoked on an object, the actual method that gets executed is decided by the type of the object being referred to at runtime, not by the reference type at compile time. This enables polymorphic behavior, allowing different objects to respond to the same method call in different ways based on their actual types.
+
+Consider this example:
+
+```java
+class Animal {
+    public void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    public void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+class Cat extends Animal {
+    public void makeSound() {
+        System.out.println("Meow");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Dog(); // Dog object referred by Animal reference
+        Animal animal2 = new Cat(); // Cat object referred by Animal reference
+
+        animal1.makeSound(); // Output: Bark - Dynamic dispatch to Dog's makeSound()
+        animal2.makeSound(); // Output: Meow - Dynamic dispatch to Cat's makeSound()
+    }
+}
+```
+
+In this example, despite having references of type `Animal`, the actual method `makeSound()` that gets executed is determined at runtime based on the actual type of the object (`Dog` or `Cat`). This behavior is achieved through dynamic method dispatch, allowing different subclasses to override the superclass method and provide their own implementations, which are invoked based on the runtime object type.
+
+Q.9. What is copy constructor?
+A:
+
+A copy constructor is a special constructor in object-oriented programming languages, including Java, that allows creating a new object by copying the values from an existing object of the same class. It creates a new object that is an exact copy of the original object.
+
+In Java, there is no explicit support for copy constructors like in some other languages (such as C++). However, you can create your own copy constructor by defining a constructor that takes an object of the same class as a parameter and initializes a new object using the values from that object.
+
+Here's an example illustrating a copy-like behavior in Java:
+
+```java
+class Person {
+    private String name;
+    private int age;
+
+    // Constructor to initialize object with name and age
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Copy-like behavior using a constructor that takes another Person object as a parameter
+    public Person(Person original) {
+        this.name = original.name;
+        this.age = original.age;
+    }
+
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person1 = new Person("Alice", 30);
+
+        // Using the copy-like constructor to create a new Person object from an existing one
+        Person person2 = new Person(person1);
+
+        // Displaying details of both Person objects
+        System.out.println("Person 1: " + person1.getName() + ", " + person1.getAge());
+        System.out.println("Person 2: " + person2.getName() + ", " + person2.getAge());
+    }
+}
+```
+
+In this example, the `Person` class defines a constructor that takes another `Person` object as a parameter. This constructor initializes a new `Person` object by copying the values of the fields (`name` and `age`) from the original `Person` object passed as an argument. This allows creating a new `Person` object with the same attributes as the original one, achieving a form of copy constructor behavior in Java.
+
+Q.10. What is file handling?
 A. File Handing in java comes under IO operations. Java IO
 package java.io classes are specially provided for file handling in java.
 Some of the common file handling operations are:
