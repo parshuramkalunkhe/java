@@ -7,15 +7,15 @@ public class Question_77 {
 		int[][] res = new int[arr1.length][arr1.length];
 
 		for (int row = 0; row < res.length; row++) {
-			for (int col = 0; col < res.length; col++) {
+			for (int col = 0; col < res[row].length; col++) {
 				int sum = 0;
-				for (int ele = 0; ele<res.length; ele++) {
+				for (int ele = 0; ele < res.length; ele++) {
 					sum = sum + arr1[row][ele] * arr2[ele][col];
 				}
-				res[row][col]= sum;
+				res[row][col] = sum;
 			}
 		}
-		
+
 		for (int i = 0; i < res.length; i++) {
 			for (int j = 0; j < res[i].length; j++) {
 				System.out.print(res[i][j] + " ");
