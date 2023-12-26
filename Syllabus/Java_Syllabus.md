@@ -1,4 +1,4 @@
-## Content
+## Contents
 
 Chapter 1. Language Fundamentals
 
