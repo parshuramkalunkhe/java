@@ -10,8 +10,10 @@ public class Question_95 {
 				res = res + strVowel(strArr[i]) + " ";
             } else if (i % 3 == 1){
                 res = res +strConsonent(strArr[i]) + " ";
-            } else {
+            } else if (i % 3 == 2){
                 res = res + strUppercase(strArr[i]) + " ";
+            } else {
+            	res = res + strArr[i] + " ";
             }
 		}
 		System.out.println(res);
@@ -27,9 +29,7 @@ public class Question_95 {
 				ch[i] = '%';
 			}
 		}
-
-		String vowel = new String(ch);
-		return vowel;
+		return new String(ch);
 	}
 
 	public static String strConsonent(String str) {
@@ -40,8 +40,7 @@ public class Question_95 {
 				ch[i] = '#';
 			}
 		}
-		String consonent = new String(ch);
-		return consonent;
+		return new String(ch);
 	}
 
 	public static String strUppercase(String str) {
