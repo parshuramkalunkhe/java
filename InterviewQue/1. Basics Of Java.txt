@@ -63,7 +63,7 @@ java source code --> compiler --> byte code --> JVM --> Binary code
 * JRE (Java Runtime Environment)
 1. It provides an environment to run java program.
 2. JRE physically exists.
-3. JRE consists of JVM & inbuilt libraries known as .class files.
+3. JRE consists of JVM & inbuilt libraries known as class files.
 
 * JVM (Java Virtual Machine)
 1. JVM takes byte code as input and generates binary as output.
@@ -90,7 +90,7 @@ A:
 
 Q.7. Why java is not 100% Object-oriented?
 A: There are a few reasons why java is not considered 100% object-oriented sometimes.
-1. Primitive Data types which are not data types.
+1. The main reason it supports primitive data/ values.
 2. Static members and methods which are associated with the class itself rather than instances of the class.
 3. Java Arrays are not true objects; they are special kind of object with a fixed size.
 
@@ -126,7 +126,7 @@ A:
 2. static block doesn't have any name, return type and any formal argument.
 3. Programmer can not call static block explicitly (forcefully).
 4. static block get executed before the execution of main method.
-5. static block is executed implicitely(automatically) by the compiler byt only once.
+5. static block is executed implicitely(automatically) by the compiler but only once.
 6. When we have multiple SIB's then they will get executed from top to bottom order.
 
 * non-static block
@@ -146,7 +146,7 @@ Q.10. Why do we need static block / non-static block ?
 Q.11. What is class loading operation and object loading operation?
 A: 
 * Class Loading operation
-In Java, class loading operation is the process of loading a class file into memory. It involves taking the bytecode produced by the java compiler and converting iti into a binary code.
+In Java, class loading operation is the process of loading a class file into memory. It involves taking the bytecode produced by the java compiler and converting it into a binary code.
 
 * Object loading operation
 On the other hand, object loading operation is the process of creating an instance (object) of class. It involves allocating memory for the object. This process is initiated using the 'new' keyword in Java.
@@ -154,7 +154,7 @@ On the other hand, object loading operation is the process of creating an instan
 Q.12. What is this and super keyword?
 A: 
 * this
-1. It is special keyword used within a class to refer to the current instance (object) fo the class.
+1. It is special keyword used within a class to refer to the current instance (object) for the class.
 2. It is used to differentiate instance variables from local varialbes when they have same name.
 3. To invoke the current object's method.
 4. To pass the current object as a parameter to other method.

@@ -1,17 +1,16 @@
 5. Exception & Exception Handling
 
-
 Q.1. Difference between Error and Exception?
-A:
+A :
 Certainly! Here's a brief differentiation between Errors and Exceptions in Java:
 
-- **Error**:
+- **Error** :
   - Errors represent serious issues that typically cannot be handled or recovered from programmatically.
   - They are usually caused by the environment in which the Java application is running, indicating problems that are beyond the control of the application.
   - Examples include `OutOfMemoryError`, `StackOverflowError`, `VirtualMachineError`, etc.
   - Attempting to handle or catch Errors is not recommended, as they usually indicate severe problems that may lead to abnormal termination of the program.
 
-- **Exception**:
+- **Exception** :
   - Exceptions represent exceptional conditions that can occur during the execution of a program and can be handled programmatically.
   - They are typically caused by the application itself due to invalid input, resource unavailability, etc.
   - Examples include `NullPointerException`, `ArithmeticException`, `FileNotFoundException`, etc.

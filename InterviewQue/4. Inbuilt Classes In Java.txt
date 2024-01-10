@@ -122,15 +122,7 @@ These methods help in performing various operations like finding the length, ext
 Q.6. Why String is immutable?
 A:
 
-String immutability in Java means that once a String object is created with a certain value, that value cannot be changed. This is because:
-
-- **Security & Thread Safety**: Immutability ensures that the content of a string cannot be altered once it's created, enhancing security by preventing modifications and ensuring thread safety.
-
-- **Caching & Performance**: Immutable strings can be cached and reused, reducing memory consumption and improving performance. Also, operations on strings like concatenation create new strings without changing the originals, improving performance.
-
-- **Hashing & Design Simplicity**: Immutability allows strings to be used reliably in hashing, simplifies code design by making behavior predictable, and prevents unexpected changes across different parts of code.
-
-These aspects make immutable strings more secure, thread-safe, and efficient while simplifying code maintenance and enhancing overall performance in Java programs.
+The String is immutable in Java because of the security, synchronization and concurrency, caching, and class loading. The reason of making string final is to destroy the immutability and to not allow others to extend it. The String objects are cached in the String pool, and it makes the String immutable.
 
 Q.7. String class can be inherited by any other class?
 A:
@@ -177,6 +169,3 @@ In summary:
 - Use `StringBuffer` when thread safety is needed for string modifications in a multithreaded environment.
 - Use `StringBuilder` when thread safety is not a concern (single-threaded scenarios) and faster string manipulation is required.
 
-
-Q.10. What is String vs String buffer vs String builder?
-A:
